@@ -6,6 +6,9 @@ namespace DecouverteEnum
     {
         private const int DAY = 1;
 
+        // nouvelle façon de coder les fonctions à une seule ligne de code
+        //static int CalculerSomme() => 1 + 1;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -15,6 +18,7 @@ namespace DecouverteEnum
 
             Console.WriteLine((int)day);
 
+           
 
             //kjhfskjfhsdf
             int valeur = 1;

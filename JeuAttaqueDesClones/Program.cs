@@ -7,9 +7,60 @@ namespace JeuAttaqueDesClones
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenue sur le jeu !");
-            PreparationDuJoueur();
-            SeDeplacer();
+
+            ChoixMenu menu = ChoixMenu.Quitter;
+            do
+            {
+                AfficherMenuDuJeu();
+                menu = LancerChoixUtilisateur();
+            } while (menu != ChoixMenu.Quitter);
         }
+
+        #region Autour du menu
+        static ChoixMenu LancerChoixUtilisateur()
+        {
+            string choix = Console.ReadLine();
+            ChoixMenu menuEnCours = ConvertirStringToChoixMenu(choix);
+            //ultra générique : ChoixMenu me = ConvertirStringToEnum<ChoixMenu>(choix);
+
+            switch (menuEnCours)
+            {
+                case ChoixMenu.Quitter:
+                    break;
+                case ChoixMenu.SaisieUtilisateur:
+                    PreparationDuJoueur(); break;
+                case ChoixMenu.GestionDeplacement:
+                    SeDeplacer(); break;
+                default:
+                    break;
+            }
+
+            return menuEnCours;
+        }
+
+        static ChoixMenu ConvertirStringToChoixMenu(string value)
+        {
+            return (ChoixMenu)Enum.Parse(typeof(ChoixMenu), value);
+        }
+
+        static T ConvertirStringToEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value);
+        }
+
+        static void AfficherMenuDuJeu()
+        {
+            string[] choixEnChaine = Enum.GetNames(typeof(ChoixMenu));
+
+            for (int i = 0; i < choixEnChaine.Length; i++)
+            {
+                ChoixMenu menuEnCours = ConvertirStringToChoixMenu(choixEnChaine[i]);
+
+                string formatAAfficher = string.Format("{0} : {1}", (int)menuEnCours, choixEnChaine[i]);
+                Console.WriteLine(formatAAfficher);
+            }
+        }
+        #endregion
 
         #region Autour du joueur
         static void PreparationDuJoueur()
@@ -20,23 +71,30 @@ namespace JeuAttaqueDesClones
             string nom = "";
             string prenom = "";
             string surnom = "";
-            int age = 0;
+            string dateDeNaissance = "";
 
             nom = AfficherInfoEtDemandeSaisie("Votre nom, s'il vous plaît");
             prenom = AfficherInfoEtDemandeSaisie("Votre prénom, s'il vous plaît");
             surnom = AfficherInfoEtDemandeSaisie("Votre surnom, s'il vous plaît");
-            age = AfficherInformationEtDemandeSaisieEntier("Votre âge s'il vous plaît ?");
+            dateDeNaissance = AfficherInfoEtDemandeSaisie("Votre date de naissance s'il vous plaît ?");
 
-            ControleSaisieAge(age);
+            int age = ControleSaisieAge(dateDeNaissance);
 
             Console.ForegroundColor = ConsoleColor.White;
 
-            //AfficherLesInformationsUtilisateur(nom, prenom, surnom, age);
             AfficherLesInformationsUtilisateur(ageP: age, prenomP: prenom, nomP: nom, surnomP: surnom);
         }
 
-        static void ControleSaisieAge(int age)
+        static int ControleSaisieAge(string dateDeNaissance)
         {
+            int age = 0;
+
+            DateTime date = DateTime.Parse(dateDeNaissance);
+            DateTime dateDuJour = DateTime.Now;
+
+            TimeSpan timeSpan = dateDuJour - date;
+            age = (int)(timeSpan.Days / 365.125M);
+
             if (age < 25)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -45,6 +103,8 @@ namespace JeuAttaqueDesClones
 
                 Console.ForegroundColor = ConsoleColor.White;
             }
+
+            return age;
         }
 
         // on a des paramètres optionnels
@@ -110,17 +170,17 @@ namespace JeuAttaqueDesClones
             bool saisieFausse = false;
             int coordonnee = 0;
 
-            while(saisieFausse)
+            while (saisieFausse)
             {
                 Console.WriteLine("Saisir une coordonnée");
                 string valeur = Console.ReadLine();
 
-                saisieFausse = ! int.TryParse(valeur, out coordonnee);
+                saisieFausse = !int.TryParse(valeur, out coordonnee);
             }
 
             return coordonnee;
 
-           
+
         }
         #endregion
     }
