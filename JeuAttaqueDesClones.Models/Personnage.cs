@@ -13,15 +13,20 @@ namespace JeuAttaqueDesClones.Models
         /// <summary>
         /// Minimum des points de vie
         /// </summary>
-        public static int MinPointsDeVie = 0;
+        public static int MON_POINTS_DE_VIE = 0;
 
         /// <summary>
         /// Maximum des points de vie
         /// </summary>
-        public static int MaxPointsDeVie = 100;
+        public static int MAX_POINTS_DE_VIE = 100;
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Position courant du personnage dans le jeu
+        /// </summary>
+        public Position PositionCourante { get; set; } = new Position();
+
         /// <summary>
         /// Nom du personnage
         /// </summary>
@@ -35,7 +40,7 @@ namespace JeuAttaqueDesClones.Models
         /// <summary>
         /// Indique si le personnage est encore en vie
         /// </summary>
-        public bool EstEnVie { get => this.PointsDeVie > Personnage.MinPointsDeVie; }
+        public bool EstEnVie { get => this.PointsDeVie > Personnage.MON_POINTS_DE_VIE; }
         #endregion
     }
 }
