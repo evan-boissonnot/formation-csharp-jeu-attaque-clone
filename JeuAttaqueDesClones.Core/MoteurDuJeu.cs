@@ -12,13 +12,10 @@ namespace JeuAttaqueDesClones.Core
     {
         #region Fields
         private static int _NB_ATTAQUANTS = 100;
-        private static int _MAX_X = 50;
-        private static int _MAX_Y = 50;
 
         #region Autour du jeu
         private Joueur _joueur = null;
         private List<Personnage> _attaquants = new List<Personnage>();
-        private static Random _RANDOM = new Random();
         #endregion
 
         private Menu _menu = null;
@@ -124,8 +121,17 @@ namespace JeuAttaqueDesClones.Core
 
         private void DemarrerLeJeu()
         {
-            throw new NotImplementedException();
+            while (this._joueur.MonPersonnage.EstEnVie)
+            {
+
+            }
         }
+
+        private void DeplacerAttaquants()
+        {
+
+        }
+
 
         private void InitialiserLancementJeu()
         {
@@ -140,8 +146,7 @@ namespace JeuAttaqueDesClones.Core
 
         private void InitialiserPositionJoueur()
         {
-            this._joueur.MonPersonnage.PositionCourante.X = MoteurDuJeu._RANDOM.Next(0, _MAX_X + 1);
-            this._joueur.MonPersonnage.PositionCourante.Y = MoteurDuJeu._RANDOM.Next(0, _MAX_Y + 1);
+            this._joueur.MonPersonnage.SeDeplacer();
         }
 
         private void AfficherBarreDeProgression()
@@ -185,10 +190,19 @@ namespace JeuAttaqueDesClones.Core
                 personnage = new Clone();
             }
 
-            personnage.PositionCourante.X = MoteurDuJeu._RANDOM.Next(0, _MAX_X + 1);
-            personnage.PositionCourante.Y = MoteurDuJeu._RANDOM.Next(0, _MAX_Y + 1);
+            this.DeplacerUnAttaquant(personnage);
 
             return personnage;
+        }
+
+        private void DeplacerLesAttaquants()
+        {
+            this._attaquants.ForEach(item => item.SeDeplacer());
+        }
+
+        private void DeplacerUnAttaquant(Personnage personnage)
+        {
+            personnage.SeDeplacer();
         }
         #endregion
     }
