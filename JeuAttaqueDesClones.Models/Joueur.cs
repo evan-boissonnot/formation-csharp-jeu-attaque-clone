@@ -40,7 +40,7 @@ namespace JeuAttaqueDesClones.Models
         /// <summary>
         /// Prénom du joueur
         /// </summary>
-        public string Prénom { get; set; }
+        public string Prenom { get; set; }
         #endregion
     }
 }
