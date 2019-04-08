@@ -43,15 +43,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librairies", "Librairies", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuAttaqueDesClones.Models", "JeuAttaqueDesClones.Models\JeuAttaqueDesClones.Models.csproj", "{A2DB4612-79D8-42D5-A494-01349C7AC923}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecouverteException", "DecouverteException\DecouverteException.csproj", "{FE1CB608-C984-4A31-A06F-6876D35682D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecouverteException", "DecouverteException\DecouverteException.csproj", "{FE1CB608-C984-4A31-A06F-6876D35682D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Découverte des delegues", "Découverte des delegues", "{A6845284-87E4-4EA7-80DF-97353A95995D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecouverteDelegate", "DecouverteDelegate\DecouverteDelegate.csproj", "{5E7DA511-0944-4AAE-99D5-10CB53D27AAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecouverteDelegate", "DecouverteDelegate\DecouverteDelegate.csproj", "{5E7DA511-0944-4AAE-99D5-10CB53D27AAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MesPremiersPasAvecLinQ", "MesPremiersPasAvecLinQ\MesPremiersPasAvecLinQ.csproj", "{88E7B0FF-7DBF-4C85-8C44-B5A04085E8B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MesPremiersPasAvecLinQ", "MesPremiersPasAvecLinQ\MesPremiersPasAvecLinQ.csproj", "{88E7B0FF-7DBF-4C85-8C44-B5A04085E8B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViveLesEvenements", "ViveLesEvenements\ViveLesEvenements.csproj", "{7DC919FC-876B-4274-A811-C3DD77BBB4AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViveLesEvenements", "ViveLesEvenements\ViveLesEvenements.csproj", "{7DC919FC-876B-4274-A811-C3DD77BBB4AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuAttaqueDesClones.Core", "JeuAttaqueDesClones.Core\JeuAttaqueDesClones.Core.csproj", "{FD1F26F5-6E9B-42CB-9617-651B89059AEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,10 @@ Global
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,6 +160,7 @@ Global
 		{5E7DA511-0944-4AAE-99D5-10CB53D27AAE} = {A6845284-87E4-4EA7-80DF-97353A95995D}
 		{88E7B0FF-7DBF-4C85-8C44-B5A04085E8B8} = {330B14AB-83CE-4362-B89B-FF853C15A144}
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB} = {330B14AB-83CE-4362-B89B-FF853C15A144}
+		{FD1F26F5-6E9B-42CB-9617-651B89059AEB} = {CBA78AB7-D7A0-4B61-917B-1B007A6FF349}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B126AF28-E7AD-4626-AE7E-02965DAA3F49}
