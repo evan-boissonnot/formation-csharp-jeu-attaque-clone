@@ -11,8 +11,6 @@ namespace JeuAttaqueDesClones.Models
     {
         #region Fields
         private static Random _RANDOM = new Random();
-        public static int _MAX_X = 50;
-        public static int _MAX_Y = 50;
 
         /// <summary>
         /// Minimum des points de vie
@@ -29,30 +27,48 @@ namespace JeuAttaqueDesClones.Models
         #endregion
 
         #region Public methods
-        public static bool operator !=(Personnage personnage, Personnage personnage2)
+        /// <summary>
+        /// Déplace le personnage selon une direction
+        /// </summary>
+        public void SeDeplacer(Direction direction)
         {
-            return ! personnage.Equals(personnage2);
-        }
+            int x = 0; int y = 0;
 
-        public static bool operator ==(Personnage personnage, Personnage personnage2)
-        {
-            return personnage.Equals(personnage2);
-        }
-
-        public void SeDeplacer()
-        {
-            if(this.EstEnVie)
+            switch (direction)
             {
-                this.PositionCourante.X = Personnage._RANDOM.Next(0, _MAX_X + 1);
-                this.PositionCourante.Y = Personnage._RANDOM.Next(0, _MAX_Y + 1);
+                case Direction.Haut: x = -1; break;
+                case Direction.Bas: x = 1; break;
+                case Direction.Droite: y = 1; break;
+                case Direction.Gauche: y = -1; break;
+                default: break;
+            }
+
+            this.PositionCourante.Deplacer(x, y);
+        }
+
+        /// <summary>
+        /// Lance un déplacement eu hasard
+        /// </summary>
+        public void SeDeplacerAuHasard()
+        {
+            if (this.EstEnVie)
+            {
+                this.PositionCourante.SeDeplacerAuHasard();
             }
         }
 
-        public void Attaquer(Personnage personnage)
+        /// <summary>
+        /// Lance une attaque jusqu'à la mort de l'un des deux personnages (Death match !)
+        /// </summary>
+        public void Tuer(Personnage personnage)
         {
-            if(this != personnage)
+            if (this != personnage && this.EstEnVie && personnage.EstEnVie)
             {
-                throw new NotImplementedException();
+                while (this.EstEnVie && personnage.EstEnVie)
+                {
+                    this.AttaquerUneFois(personnage);
+                    personnage.AttaquerUneFois(this);
+                }
             }
         }
 
@@ -68,6 +84,43 @@ namespace JeuAttaqueDesClones.Models
             }
 
             return estEgal;
+        }
+
+        /// <summary>
+        /// Vérifie si les deux personnages sont sur la même position
+        /// </summary>
+        /// <returns></returns>
+        public bool VerifierMemePosition(Personnage personne)
+        {
+            bool memePosition = false;
+
+            if (!this.Equals(personne))
+            {
+                memePosition = this.PositionCourante == personne.PositionCourante;
+            }
+
+            return memePosition;
+        }
+
+        /// <summary>
+        /// Vérifie si même position qu'une position donnée
+        /// </summary>
+        /// <returns></returns>
+        public bool VerifierMemePosition(Position position)
+        {
+            return this.PositionCourante == position;
+        }
+        #endregion
+
+        #region Internal methods
+        private void AttaquerUneFois(Personnage defenseur)
+        {
+            if (defenseur.EstEnVie)
+            {
+                int pointsAEnlever = Personnage._RANDOM.Next(0, Personnage.MAX_POINTS_DE_VIE / 2);
+
+                defenseur.PointsDeVie -= pointsAEnlever;
+            }
         }
         #endregion
 

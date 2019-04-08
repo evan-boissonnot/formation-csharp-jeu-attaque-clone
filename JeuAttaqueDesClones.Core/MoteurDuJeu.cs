@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using JeuAttaqueDesClones.Models;
+using System.Linq;
 
 namespace JeuAttaqueDesClones.Core
 {
@@ -11,7 +12,6 @@ namespace JeuAttaqueDesClones.Core
     public class MoteurDuJeu
     {
         #region Fields
-        private static int _NB_ATTAQUANTS = 100;
 
         #region Autour du jeu
         private Joueur _joueur = null;
@@ -123,11 +123,23 @@ namespace JeuAttaqueDesClones.Core
         {
             while (this._joueur.MonPersonnage.EstEnVie)
             {
-                this.DeplacerLesAttaquants();
-                this.GererLesAttaques();
-                DemanderNouveauDeplacement();
-                Thread.Sleep(100);
+                if (Configuration.EstAvecAttaquants)
+                {
+                    this.DeplacerLesAttaquants();
+                }
                 this.AfficherCarte();
+
+                if (this._joueur.MonPersonnage.EstEnVie)
+                {
+                    DemanderNouveauDeplacement();
+                }
+
+                if (Configuration.EstAvecAttaquants)
+                {
+                    this.GererLesAttaques();
+                }
+
+                Thread.Sleep(100);                
             }
         }
 
@@ -144,7 +156,7 @@ namespace JeuAttaqueDesClones.Core
 
         private void InitialiserPositionJoueur()
         {
-            this._joueur.MonPersonnage.SeDeplacer();
+            this._joueur.MonPersonnage.SeDeplacerAuHasard();
         }
 
         private void AfficherBarreDeProgression()
@@ -168,7 +180,7 @@ namespace JeuAttaqueDesClones.Core
         {
             bool estGentil = (this._joueur.MonPersonnage is Clone);
 
-            for (int i = 0; i < MoteurDuJeu._NB_ATTAQUANTS; i++)
+            for (int i = 0; i < Configuration.NB_ATTAQUANTS; i++)
             {
                 this._attaquants.Add(this.InitialiserUnAttaquant(estGentil));
             }
@@ -195,35 +207,100 @@ namespace JeuAttaqueDesClones.Core
 
         private void DeplacerLesAttaquants()
         {
-            this._attaquants.ForEach(item => item.SeDeplacer());
+            this._attaquants.ForEach(item => item.SeDeplacerAuHasard());
         }
 
         private void DeplacerUnAttaquant(Personnage personnage)
         {
-            personnage.SeDeplacer();
+            personnage.SeDeplacerAuHasard();
         }
 
         private void GererLesAttaques()
         {
-            throw new NotImplementedException();
+            var query = from personne in this._attaquants
+                        where personne.VerifierMemePosition(this._joueur.MonPersonnage)
+                        select personne;
+
+            List<Personnage> attaquants = query.ToList();
+            int i = 0;
+
+            while (i < attaquants.Count && this._joueur.MonPersonnage.EstEnVie)
+            {
+                Personnage attaquant = attaquants[i];
+
+                this._afficherLigne("Un nouvel ennemi arrive");
+                this._joueur.MonPersonnage.Tuer(attaquant);
+
+                if (this._joueur.MonPersonnage.EstEnVie)
+                    this._afficherLigne("Bravo, vous avez térassé l'ennemi !");
+                else
+                    this._afficherLigne("Oh non, vous êtes mort ! :'(");
+
+                i++;
+            }
         }
 
         private void DemanderNouveauDeplacement()
         {
-            throw new NotImplementedException();
+            this._afficherLigne("Se déplacer ? (E : Haut, D: Bas, S: Gauche, F: Droite)");
+            string saisie = this._saisirInformation();
+
+            // NOTE: ici, on peut améliorer le moteur avec une classe dédiée
+            switch (saisie.ToLower())
+            {
+                case "e": this._joueur.MonPersonnage.SeDeplacer(Direction.Haut); break;
+                case "d": this._joueur.MonPersonnage.SeDeplacer(Direction.Bas); break;
+                case "s": this._joueur.MonPersonnage.SeDeplacer(Direction.Gauche); break;
+                case "f": this._joueur.MonPersonnage.SeDeplacer(Direction.Droite); break;
+
+                default:
+                    break;
+            }
         }
 
         private void AfficherCarte()
         {
-            for (int i = 0; i < Personnage._MAX_X; i++)
+            this.Delimitertableau();
+
+            for (int i = 0; i < Configuration.MAX_X; i++)
             {
-                for (int j = 0; j < Personnage._MAX_Y; j++)
+                this._afficherSurMemeLigne("[");
+                for (int j = 0; j < Configuration.MAX_Y; j++)
                 {
-                    this._afficherSurMemeLigne(".");
-                    throw new NotImplementedException("Gérer l'affichage si joueur, attaquant (vivant ou mort)");
+                    string aAfficher = this.RecupererCaractereAAfficher(i, j);
+
+                    this._afficherSurMemeLigne(aAfficher);
                 }
-                this._afficherSurMemeLigne("\n");
+                this._afficherSurMemeLigne("]\n");
             }
+
+            this.Delimitertableau();
+        }
+
+        private void Delimitertableau()
+        {
+            for (int i = 0; i < Configuration.MAX_X; i++)
+            {
+                this._afficherSurMemeLigne("_");
+            }
+            this._afficherSurMemeLigne("\n");
+        }
+
+        private string RecupererCaractereAAfficher(int x, int y)
+        {
+            string affichage = ".";
+            Position position = new Position(x, y);
+
+            if (this._joueur.MonPersonnage.VerifierMemePosition(position))
+            {
+                affichage = "O";
+            }
+            else if(this._attaquants.Any(item => item.EstEnVie && item.VerifierMemePosition(position)))
+            {
+                affichage = "K";
+            }
+
+            return affichage;
         }
         #endregion
     }
