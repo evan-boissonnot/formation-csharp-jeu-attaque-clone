@@ -38,8 +38,16 @@ namespace JeuAttaqueDesClones.Models
 
         public void SeDeplacerAuHasard()
         {
-            int x = Position._RANDOM.Next(0, Configuration.MAX_X + 1);
-            int y = Position._RANDOM.Next(0, Configuration.MAX_Y + 1);
+            int x = Position._RANDOM.Next(-1, 2);
+            int y = Position._RANDOM.Next(-1, 2);
+
+            this.Deplacer(x, y);
+        }
+
+        public void SInitialiserAuHasard()
+        {
+            int x = Position._RANDOM.Next(0, Configuration.MAX_X);
+            int y = Position._RANDOM.Next(0, Configuration.MAX_Y);
 
             this.Deplacer(x, y);
         }

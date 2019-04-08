@@ -148,6 +148,7 @@ namespace JeuAttaqueDesClones.Core
             this._afficherLigne("======== C'EST PARTI !!! ========");
 
             this.InitialiserAttaquants();
+            this._joueur.Reinitialiser();
             this.InitialiserPositionJoueur();
 
             this.AfficherBarreDeProgression();
@@ -156,7 +157,7 @@ namespace JeuAttaqueDesClones.Core
 
         private void InitialiserPositionJoueur()
         {
-            this._joueur.MonPersonnage.SeDeplacerAuHasard();
+            this._joueur.MonPersonnage.SInitialiserAuHasard();
         }
 
         private void AfficherBarreDeProgression()
@@ -200,7 +201,7 @@ namespace JeuAttaqueDesClones.Core
                 personnage = new Clone();
             }
 
-            this.DeplacerUnAttaquant(personnage);
+            personnage.SInitialiserAuHasard();
 
             return personnage;
         }
@@ -293,11 +294,17 @@ namespace JeuAttaqueDesClones.Core
 
             if (this._joueur.MonPersonnage.VerifierMemePosition(position))
             {
-                affichage = "O";
+                affichage = "X";
             }
-            else if(this._attaquants.Any(item => item.EstEnVie && item.VerifierMemePosition(position)))
+            else 
             {
-                affichage = "K";
+                List<Personnage> personnageMemePosition = this._attaquants.Where(item => item.VerifierMemePosition(position)).ToList();
+                if (personnageMemePosition.Count > 0)
+                {
+                    affichage = "Q";
+                    if (personnageMemePosition.All(item => !item.EstEnVie))
+                        affichage = "_";
+                }
             }
 
             return affichage;

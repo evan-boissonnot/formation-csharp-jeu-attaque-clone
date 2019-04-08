@@ -28,6 +28,15 @@ namespace JeuAttaqueDesClones.Models
 
         #region Public methods
         /// <summary>
+        /// Relance tous les paramètres du début de jeu
+        /// </summary>
+        public void Reinitialiser()
+        {
+            this.PointsDeVie = Personnage.MAX_POINTS_DE_VIE;
+            this.SeDeplacerAuHasard();
+        }
+
+        /// <summary>
         /// Déplace le personnage selon une direction
         /// </summary>
         public void SeDeplacer(Direction direction)
@@ -54,6 +63,17 @@ namespace JeuAttaqueDesClones.Models
             if (this.EstEnVie)
             {
                 this.PositionCourante.SeDeplacerAuHasard();
+            }
+        }
+
+        /// <summary>
+        /// Lance un déplacement eu hasard
+        /// </summary>
+        public void SInitialiserAuHasard()
+        {
+            if (this.EstEnVie)
+            {
+                this.PositionCourante.SInitialiserAuHasard();
             }
         }
 

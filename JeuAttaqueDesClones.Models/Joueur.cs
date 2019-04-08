@@ -24,6 +24,14 @@ namespace JeuAttaqueDesClones.Models
 
             return this._personnage;
         }
+
+        /// <summary>
+        /// Réinitalise le joueur
+        /// </summary>
+        public void Reinitialiser()
+        {
+            this.MonPersonnage.Reinitialiser();
+        }
         #endregion
 
         #region Properties
