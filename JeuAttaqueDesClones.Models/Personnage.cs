@@ -11,8 +11,8 @@ namespace JeuAttaqueDesClones.Models
     {
         #region Fields
         private static Random _RANDOM = new Random();
-        private static int _MAX_X = 50;
-        private static int _MAX_Y = 50;
+        public static int _MAX_X = 50;
+        public static int _MAX_Y = 50;
 
         /// <summary>
         /// Minimum des points de vie
@@ -52,7 +52,7 @@ namespace JeuAttaqueDesClones.Models
         {
             if(this != personnage)
             {
-
+                throw new NotImplementedException();
             }
         }
 
@@ -85,7 +85,7 @@ namespace JeuAttaqueDesClones.Models
         /// <summary>
         /// Points de vie du personnage
         /// </summary>
-        public int PointsDeVie { get; set; }
+        public int PointsDeVie { get; set; } = Personnage.MAX_POINTS_DE_VIE;
 
         /// <summary>
         /// Indique si le personnage est encore en vie

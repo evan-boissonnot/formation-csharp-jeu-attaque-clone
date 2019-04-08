@@ -123,15 +123,13 @@ namespace JeuAttaqueDesClones.Core
         {
             while (this._joueur.MonPersonnage.EstEnVie)
             {
-
+                this.DeplacerLesAttaquants();
+                this.GererLesAttaques();
+                DemanderNouveauDeplacement();
+                Thread.Sleep(100);
+                this.AfficherCarte();
             }
         }
-
-        private void DeplacerAttaquants()
-        {
-
-        }
-
 
         private void InitialiserLancementJeu()
         {
@@ -203,6 +201,29 @@ namespace JeuAttaqueDesClones.Core
         private void DeplacerUnAttaquant(Personnage personnage)
         {
             personnage.SeDeplacer();
+        }
+
+        private void GererLesAttaques()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DemanderNouveauDeplacement()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AfficherCarte()
+        {
+            for (int i = 0; i < Personnage._MAX_X; i++)
+            {
+                for (int j = 0; j < Personnage._MAX_Y; j++)
+                {
+                    this._afficherSurMemeLigne(".");
+                    throw new NotImplementedException("Gérer l'affichage si joueur, attaquant (vivant ou mort)");
+                }
+                this._afficherSurMemeLigne("\n");
+            }
         }
         #endregion
     }
