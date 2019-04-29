@@ -53,16 +53,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MesPremiersPasAvecLinQ", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViveLesEvenements", "ViveLesEvenements\ViveLesEvenements.csproj", "{7DC919FC-876B-4274-A811-C3DD77BBB4AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuAttaqueDesClones.Core", "JeuAttaqueDesClones.Core\JeuAttaqueDesClones.Core.csproj", "{FD1F26F5-6E9B-42CB-9617-651B89059AEB}"
-EndProjectProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formation aspnet core", "Formation aspnet core", "{9402123A-E7C1-4A58-833C-6E6E66744DD7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formation csharp", "Formation csharp", "{CC228AC8-A197-4E17-A4BE-395FFC7DB056}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formation aspnet core", "Formation aspnet core", "{9402123A-E7C1-4A58-833C-6E6E66744DD7}"
 	ProjectSection(SolutionItems) = preProject
 		DecouverteBootstrap.html = DecouverteBootstrap.html
 		Html et CSS\DecouverteHtml - v2-2.html = Html et CSS\DecouverteHtml - v2-2.html
 		Html et CSS\DecouverteHtml.html = Html et CSS\DecouverteHtml.html
 		DecouverteHtmlEtFeuilleStyle.html = DecouverteHtmlEtFeuilleStyle.html
+		DecouverteJavascript.html = DecouverteJavascript.html
 		ma-premiere-feuille.css = ma-premiere-feuille.css
 	EndProjectSection
-EndProjectGlobal
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuAttaqueDesClones.Core", "JeuAttaqueDesClones.Core\JeuAttaqueDesClones.Core.csproj", "{CBF2B958-674F-4B9F-B966-DB8001D36B59}"
+EndProject
+Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -136,10 +141,10 @@ EndProjectGlobal
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD1F26F5-6E9B-42CB-9617-651B89059AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,7 +175,7 @@ EndProjectGlobal
 		{5E7DA511-0944-4AAE-99D5-10CB53D27AAE} = {A6845284-87E4-4EA7-80DF-97353A95995D}
 		{88E7B0FF-7DBF-4C85-8C44-B5A04085E8B8} = {330B14AB-83CE-4362-B89B-FF853C15A144}
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB} = {330B14AB-83CE-4362-B89B-FF853C15A144}
-		{FD1F26F5-6E9B-42CB-9617-651B89059AEB} = {CBA78AB7-D7A0-4B61-917B-1B007A6FF349}
+		{CBF2B958-674F-4B9F-B966-DB8001D36B59} = {CBA78AB7-D7A0-4B61-917B-1B007A6FF349}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B126AF28-E7AD-4626-AE7E-02965DAA3F49}
