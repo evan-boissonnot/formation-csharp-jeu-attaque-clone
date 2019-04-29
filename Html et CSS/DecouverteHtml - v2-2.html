@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        h1, h2, h3 {
+            font-weight: bold;
+            margin: 10px;
+        }
+
+
+
+        div.container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+        }
+
+            div.container h1 {
+                font-size: 38px;
+            }
+
+            div.container h2 {
+                font-size: 25px;
+            }
+
+            div.container div.row {
+                margin: 20px;
+                grid-template-columns: 200px 200px 200px;
+                display: grid;
+            }
+
+                div.container div.row .col {
+                    width: 200px;
+                }
+    </style>
+</head>
+<body>
+    <h1>Coucou 2</h1>
+    <div class="container">
+        <h1>Coucou</h1>
+        <div>
+            <h1 style="">Saisie d'un wookie</h1>
+            <!-- <h2 style="font-size:12px">Saisissez les informations du Wookie</h2> -->
+            <h2 style="" class="toutEnRouge monPremierStyle">Saisissez les informations du Wookie</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Prénom</label>
+            </div>
+            <div class="col">
+                <input type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Nom</label>
+            </div>
+            <div class="col">
+                <input type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Famille</label>
+            </div>
+            <div class="col">
+                <input type="text" />
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Ajouter" />
+        </div>
+
+    </div>
+</body>
+</html>

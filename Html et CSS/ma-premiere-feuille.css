@@ -1,0 +1,26 @@
+﻿div.box {
+    border: 3px solid green;
+}
+
+div.container-inside {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+    div.container div.row {
+        display: grid;
+        grid-template-columns: 100px 100px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+        div.container div.row div.col {
+        }
