@@ -6,20 +6,49 @@ namespace JeuAttaqueDesClones.Models
 {
     public class Joueur
     {
-        private Personnage _personnage;
+        #region Fields
+        private Personnage _personnage = null;
+        #endregion
 
+        #region Public methods
         /// <summary>
         /// Initialise la propriété MonPersonnage
         /// </summary>
         /// <param name="estGentil"></param>
-        public void InitialiserPersonnage(bool estGentil = true)
+        public Personnage InitialiserPersonnage(bool estGentil = true)
         {
             if (estGentil)
                 this._personnage = new Clone();
             else
                 this._personnage = new Robot();
+
+            return this._personnage;
         }
 
+        /// <summary>
+        /// Réinitalise le joueur
+        /// </summary>
+        public void Reinitialiser()
+        {
+            this.MonPersonnage.Reinitialiser();
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// Personnage du joueur
+        /// </summary>
         public Personnage MonPersonnage { get { return this._personnage; } }
+
+        /// <summary>
+        /// Nom du joueur
+        /// </summary>
+        public string Nom { get; set; }
+
+        /// <summary>
+        /// Prénom du joueur
+        /// </summary>
+        public string Prenom { get; set; }
+        #endregion
     }
 }
