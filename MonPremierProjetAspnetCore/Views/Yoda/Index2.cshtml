@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+
+    // 2° etape : valeur dans la vue : int nombreDeGlaces = 4;
+    int nombreDeGlaces = ViewBag.NombreDeGlaces;
+    List<string> listPhotos = ViewBag.ListePhotos;
+
+}
+
+<h1>Bienvenue chez yoda's'cream</h1>
+
+<ul>
+    @*
+            Etape 1 : statique avec 3 images
+            <li>
+            <img src="http://img.over-blog.com/375x500/3/98/73/39/Fonds-d-ecran-Ipad/Deux-parfums-jpg-fond-d-ecran-gratuit-pour-Ipad-2-et-Ipad.jpeg" title="Ma glace préférée" alt="Ma glace préférée" />
+        </li>
+        <li>
+            <img src="http://img.over-blog.com/375x500/3/98/73/39/Fonds-d-ecran-Ipad/Deux-parfums-jpg-fond-d-ecran-gratuit-pour-Ipad-2-et-Ipad.jpeg" title="Ma glace préférée" alt="Ma glace préférée" />
+        </li>
+        <li>
+            <img src="http://img.over-blog.com/375x500/3/98/73/39/Fonds-d-ecran-Ipad/Deux-parfums-jpg-fond-d-ecran-gratuit-pour-Ipad-2-et-Ipad.jpeg" title="Ma glace préférée" alt="Ma glace préférée" />
+        </li>*@
+
+    @*Etape 2 : dynamiser *@
+    @for (int i = 0; i < listPhotos.Count; i++)
+    {
+        string url = listPhotos[i];
+
+        
+        <li>
+            <img src="@url" title="Ma glace préférée" alt="Ma glace préférée" />
+            <img src="@( url + "hh" )" title="Ma glace préférée" alt="Ma glace préférée" />
+            <img src="@listPhotos[i]" title="Ma glace préférée" alt="Ma glace préférée" />
+        </li>
+    }
+</ul>
+

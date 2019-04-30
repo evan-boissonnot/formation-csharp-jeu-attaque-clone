@@ -56,16 +56,24 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formation csharp", "Formation csharp", "{CC228AC8-A197-4E17-A4BE-395FFC7DB056}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formation aspnet core", "Formation aspnet core", "{9402123A-E7C1-4A58-833C-6E6E66744DD7}"
-	ProjectSection(SolutionItems) = preProject
-		DecouverteBootstrap.html = DecouverteBootstrap.html
-		Html et CSS\DecouverteHtml - v2-2.html = Html et CSS\DecouverteHtml - v2-2.html
-		Html et CSS\DecouverteHtml.html = Html et CSS\DecouverteHtml.html
-		DecouverteHtmlEtFeuilleStyle.html = DecouverteHtmlEtFeuilleStyle.html
-		DecouverteJavascript.html = DecouverteJavascript.html
-		ma-premiere-feuille.css = ma-premiere-feuille.css
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuAttaqueDesClones.Core", "JeuAttaqueDesClones.Core\JeuAttaqueDesClones.Core.csproj", "{CBF2B958-674F-4B9F-B966-DB8001D36B59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonPremierProjetAspnetCore", "MonPremierProjetAspnetCore\MonPremierProjetAspnetCore.csproj", "{BEBA4713-CCDA-4BAB-A46D-89AD1F7937AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Statics", "Statics", "{1B87F885-7CC7-4E8F-9C4D-92999ED39480}"
+	ProjectSection(SolutionItems) = preProject
+		Html et CSS\DecouverteBootstrap.html = Html et CSS\DecouverteBootstrap.html
+		Html et CSS\DecouverteHtml - v2-2.html = Html et CSS\DecouverteHtml - v2-2.html
+		Html et CSS\DecouverteHtml.html = Html et CSS\DecouverteHtml.html
+		Html et CSS\DecouverteHtmlEtFeuilleStyle.html = Html et CSS\DecouverteHtmlEtFeuilleStyle.html
+		Html et CSS\ma-premiere-feuille.css = Html et CSS\ma-premiere-feuille.css
+		Html et CSS\mon-livre-1.html = Html et CSS\mon-livre-1.html
+		Html et CSS\mon-livre-2.html = Html et CSS\mon-livre-2.html
+		Html et CSS\mon-livre-3.html = Html et CSS\mon-livre-3.html
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuDroides.Web.UI", "JeuDroides.Web.UI\JeuDroides.Web.UI.csproj", "{F300C1F1-3800-42F8-9EFE-A09407F4C68D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +153,14 @@ Global
 		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF2B958-674F-4B9F-B966-DB8001D36B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEBA4713-CCDA-4BAB-A46D-89AD1F7937AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEBA4713-CCDA-4BAB-A46D-89AD1F7937AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEBA4713-CCDA-4BAB-A46D-89AD1F7937AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEBA4713-CCDA-4BAB-A46D-89AD1F7937AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F300C1F1-3800-42F8-9EFE-A09407F4C68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F300C1F1-3800-42F8-9EFE-A09407F4C68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F300C1F1-3800-42F8-9EFE-A09407F4C68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F300C1F1-3800-42F8-9EFE-A09407F4C68D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +192,9 @@ Global
 		{88E7B0FF-7DBF-4C85-8C44-B5A04085E8B8} = {330B14AB-83CE-4362-B89B-FF853C15A144}
 		{7DC919FC-876B-4274-A811-C3DD77BBB4AB} = {330B14AB-83CE-4362-B89B-FF853C15A144}
 		{CBF2B958-674F-4B9F-B966-DB8001D36B59} = {CBA78AB7-D7A0-4B61-917B-1B007A6FF349}
+		{BEBA4713-CCDA-4BAB-A46D-89AD1F7937AF} = {9402123A-E7C1-4A58-833C-6E6E66744DD7}
+		{1B87F885-7CC7-4E8F-9C4D-92999ED39480} = {9402123A-E7C1-4A58-833C-6E6E66744DD7}
+		{F300C1F1-3800-42F8-9EFE-A09407F4C68D} = {9402123A-E7C1-4A58-833C-6E6E66744DD7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B126AF28-E7AD-4626-AE7E-02965DAA3F49}

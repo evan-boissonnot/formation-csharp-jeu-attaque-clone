@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Page dew wookies";
+
+    List<string> listeDesWookies = ViewBag.ListeWookies;
+}
+
+
+<div class="list-group">
+
+    @foreach (var nomWookie in listeDesWookies)
+    {
+        <button type="button" class="list-group-item">
+             @nomWookie
+        </button>
+    }
+</div>

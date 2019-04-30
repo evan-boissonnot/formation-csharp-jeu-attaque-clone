@@ -2,12 +2,17 @@
     border: 3px solid green;
 }
 
+
 div.container {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    border-color: mediumaquamarine;
+    border-color: orange;
 }
+
+    div.container div.size-800 {
+        width: 800px;
+    }
 
 
     div.container div.row {
