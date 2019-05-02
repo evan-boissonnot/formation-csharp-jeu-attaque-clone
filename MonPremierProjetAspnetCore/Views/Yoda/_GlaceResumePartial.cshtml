@@ -1,0 +1,11 @@
+﻿@model MonPremierProjetAspnetCore.Models.Glace
+
+@{ 
+    string url = Model.Url;
+}
+
+<li>
+    <img src="@url" title="Ma glace préférée" alt="Ma glace préférée" />
+    <img src="@( url + "hh" )" title="Ma glace préférée" alt="Ma glace préférée" />
+    <img src="@Model.Url" title="Ma glace préférée" alt="Ma glace préférée" />
+</li>

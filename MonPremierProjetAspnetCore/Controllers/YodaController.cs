@@ -47,5 +47,45 @@ namespace MonPremierProjetAspnetCore.Controllers
 
             return View(listGlaces);
         }
+
+        public IActionResult IndexAvecModelEtPartial()
+        {
+            return this.IndexAvecModel();
+        }
+
+        public IActionResult Create()
+        {           
+            return this.View();
+        }
+
+        //
+        // Premier moyen de récupère les valeurs de la form du client (après submit)
+        //[HttpPost]
+        //public IActionResult Create(string Url)
+        //{
+
+        //    return this.View();
+        //}
+
+        // Prouve que c'est juste les paramètres et les propriétés, donc le nom qui est recherché dans la formcollection
+        //[HttpPost]
+        //public IActionResult Create(UnClasseDeTest une, string Url, Glace glace)
+        //{
+
+        //    return this.View();
+        //}
+
+        [HttpPost]
+        public IActionResult Create(Glace glace)
+        {
+
+            return this.View();
+        }
+    }
+
+    public class UnClasseDeTest
+    {
+        public string Url { get; set; }
+        public string Url2Ahah { get; set; }
     }
 }

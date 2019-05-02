@@ -1,16 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Page dew wookies";
+﻿@using JeuAttaqueDesClones.Models
 
-    List<string> listeDesWookies = ViewBag.ListeWookies;
+@model List<Wookie>
+
+@{
+    ViewData["Title"] = "Page des wookies";
+
+
+
 }
 
 
 <div class="list-group">
 
-    @foreach (var nomWookie in listeDesWookies)
+    @foreach (var wookie in Model)
     {
         <button type="button" class="list-group-item">
-             @nomWookie
+            @(wookie.Prenom + " " + wookie.Nom) @*Fais ce précalcul de code puis affiche-le*@
         </button>
+
+        @if (wookie.MesCombats != null)
+        {
+            <div class="list-group">
+                @foreach (var combat in wookie.MesCombats)
+                {
+                    <button type="button" class="list-group-item">
+                        @( combat.Date + " " + combat.WookieGagnant )
+                    </button>
+                 }
+            </div>
+
+        }
     }
 </div>
